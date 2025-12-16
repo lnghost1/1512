@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexusTrade - AI Trading Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              nexus: {
+                bg: '#050505',       // Ultra dark background (Preto Absoluto)
+                card: '#0A0A0A',     // Slightly lighter card
+                border: '#1A1A1A',   // Subtle borders
+                primary: '#00E599',  // Nexus Green (Up/Buy) - A cor exata da logo
+                500: '#00E599',
+                600: '#00CC88',
+                700: '#00A36C',
+                800: '#004D33',
+                900: '#001F14',
+                danger: '#FF2950',   // TraderScan Red (Down/Sell)
+                accent: '#2962FF',   // Tech Blue
+                text: '#EDEDED',     // Main text
+                muted: '#666666',    // Muted text
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+              'fade-in': 'fadeIn 0.5s ease-out',
+            },
+            keyframes: {
+              glow: {
+                '0%': { boxShadow: '0 0 5px rgba(0, 229, 153, 0.2)' },
+                '100%': { boxShadow: '0 0 20px rgba(0, 229, 153, 0.6)' },
+              },
+              shake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #050505; 
+        color: #EDEDED;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #050505; }
+      ::-webkit-scrollbar-thumb { background: #1F1F1F; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #00E599; }
+
+      /* Glassmorphism Utilities */
+      .glass-panel {
+        background: rgba(10, 10, 10, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .glass-input {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        color: white;
+      }
+      .glass-input:focus {
+        border-color: #00E599;
+        background: rgba(0, 229, 153, 0.05);
+        outline: none;
+      }
+
+      /* Neon Effects */
+      .neon-text-green {
+        text-shadow: 0 0 15px rgba(0, 229, 153, 0.4);
+      }
+      .neon-text-red {
+        text-shadow: 0 0 15px rgba(255, 41, 80, 0.4);
+      }
+      
+      /* 
+         GRID BACKGROUND
+      */
+      .grid-bg {
+        background-image: 
+          linear-gradient(rgba(0, 229, 153, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 229, 153, 0.07) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.84.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
